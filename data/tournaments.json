@@ -1,0 +1,50 @@
+{
+  "tournaments": [
+    {
+      "id": 1,
+      "name": "Mobile Legends Tournament Season 2",
+      "date": "N/A",
+      "registrationDeadline": "June 10, 2025",
+      "venue": "Batchelor East Plaza",
+      "description": "5v5 Mobile Legends tournament for youth residents of Batchelor East. Compete for cash prizes and bragging rights!",
+      "gameType": "Mobile",
+      "entryFee": "₱150 per team",
+      "prizes": "1st Place: ₱3,000, 2nd Place: ₱2,000, 3rd Place: ₱1,000",
+      "status": "open",
+      "maxTeams": 16,
+      "currentTeams": 0,
+      "image": "assets/images/ml.png"
+    },
+    {
+      "id": 2,
+      "name": "Basketball Tournament",
+      "date": "N/A",
+      "registrationDeadline": "N/A",
+      "venue": "N/A",
+      "description": "N/A",
+      "gameType": "N/A",
+      "entryFee": "N/A",
+      "prizes": "N/A",
+      "status": "closed",
+      "maxTeams": 0,
+      "currentTeams": 0,
+      "image": "assets/images/bask.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Volleyball Tournament",
+      "date": "N/A",
+      "registrationDeadline": "N/A",
+      "venue": "N/A",
+      "description": "N/A",
+      "gameType": "N/A",
+      "entryFee": "N/A",
+      "prizes": "N/A",
+      "status": "closed",
+      "maxTeams": 0,
+      "currentTeams": 0,
+      "image": "assets/images/voley.jpg"
+    }
+    
+  ]
+}

@@ -1,0 +1,269 @@
+/* Mobile First Approach */
+
+/* Base styles for mobile */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+    
+    .logo {
+        margin-bottom: 1rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 0.8rem;
+    }
+    
+    main {
+        padding-top: 150px;
+    }
+    
+    .hero {
+        height: auto;
+        padding: 3rem 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .info {
+        padding: 2rem 1rem;
+    }
+    
+    .info h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    header {
+        padding: 0 1.5rem;
+    }
+    
+    nav ul {
+        gap: 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+}
+
+/* Large Desktop */
+@media (min-width: 1400px) {
+    .hero h1 {
+        font-size: 4rem;
+    }
+    
+    .hero p {
+        font-size: 1.4rem;
+    }
+    
+    .info {
+        padding: 6rem 2rem;
+    }
+    
+    .info h2 {
+        font-size: 3rem;
+    }
+    
+    .info p {
+        font-size: 1.3rem;
+    }
+}
+
+/* For extremely small screens */
+@media (max-width: 375px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile First Approach */
+
+/* Base styles for mobile */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        height: var(--header-height);
+        padding: 0 1.5rem;
+    }
+    
+    .logo {
+        margin-bottom: 0;
+    }
+    
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--darker-bg);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+        transition: right 0.3s ease;
+        z-index: 1000;
+        padding-top: var(--header-height);
+        overflow-y: auto;
+    }
+    
+    nav.active {
+        right: 0;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem;
+    }
+    
+    nav ul li {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    nav ul li a {
+        display: block;
+        padding: 1rem;
+        text-align: left;
+        border-left: 3px solid transparent;
+        border-radius: 0;
+    }
+    
+    nav ul li a:hover,
+    nav ul li a.active {
+        background-color: rgba(30, 144, 255, 0.1);
+        border-left: 3px solid var(--secondary-color);
+    }
+    
+    /* Overlay when menu is open */
+    .nav-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease;
+    }
+    
+    .nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Mobile and responsive styles for registration form */
+
+@media (max-width: 992px) {
+    .registration-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-info {
+        padding: 1.5rem;
+    }
+    
+    .form-container {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .form-actions button {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .registration-section {
+        padding: 2rem 0 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-section h3 {
+        font-size: 1.2rem;
+    }
+    
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    select,
+    textarea {
+        padding: 0.7rem;
+    }
+    
+    .team-member {
+        padding: 0.8rem;
+    }
+}
+
+/* Responsive logo adjustments */
+@media (max-width: 768px) {
+    .logo img {
+        height: 40px;
+    }
+    
+    .logo-text {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        height: 35px;
+    }
+    
+    .logo-text {
+        font-size: 20px;
+    }
+}

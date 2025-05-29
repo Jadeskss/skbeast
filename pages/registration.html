@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - SkBeast Tournaments</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="icon" href="../assets/images/logo.png" type="image/svg+xml">
+    <!-- Formspree AJAX library -->
+    <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="../assets/images/logo.png" alt="SkBeast Tournaments Logo">
+        </div>
+        <div class="hamburger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="tournaments.html">Tournaments</a></li>
+                <li><a href="registration.html" class="active">Register</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="page-banner">
+            <div class="government-badge">Official Sangguniang Kabataan Initiative</div>
+            <h1>Tournament Registration</h1>
+            <p>Fill out the form below to register for one of our exciting tournaments</p>
+        </section>
+
+        <section class="registration-section">
+            <div class="container">
+                <div class="registration-container">
+                    <div class="form-info">
+                        <h2>Registration Guidelines</h2>
+                        <ul>
+                            <li>Registration is open to Batchelor East residents aged 15-30</li>
+                            <li>Payment of registration fees must be completed within 48 hours</li>
+                            <li>Team captains must submit complete team information</li>
+                            <li>Valid ID may be required at tournament check-in</li>
+                            <li>By registering, you agree to follow all tournament rules</li>
+                        </ul>
+                        <div class="contact-info">
+                            <h3>Need Help?</h3>
+                            <p>Contact our councils:</p>
+                            <p><strong>Email:</strong> Ebasangguninagkabataan30@gmail.com</p>
+                            <p><strong>Phone:</strong> 63 </p>
+                        </div>
+                    </div>
+                    
+                    <div class="form-container">
+                        <h2>Registration Form</h2>
+                        <!-- Formspree notification area for status messages -->
+                        <div id="form-status" class="form-status"></div>
+                        
+                        <form id="registration-form" action="https://formspree.io/f/xvgaejzk" method="POST">
+                            <div class="form-group">
+                                <label for="tournamentId">Select Tournament:</label>
+                                <select id="tournamentId" name="tournament" required>
+                                    
+                                </select>
+                            </div>
+                            
+                            <div class="form-section">
+                                <h3>Personal Information</h3>
+                                <div class="form-group">
+                                    <label for="name">Full Name:</label>
+                                    <input type="text" id="name" name="name" required placeholder="Your full name">
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="email">Email:</label>
+                                        <input type="email" id="email" name="email" required placeholder="Your email address">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number:</label>
+                                        <input type="tel" id="phone" name="phone" required placeholder="Your contact number">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="age">Age:</label>
+                                        <input type="number" id="age" name="age" min="15" max="30" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="address">Address:</label>
+                                        <input type="text" id="address" name="address" required placeholder="Your address in Batchelor East">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-section team-section">
+                                <h3>Team Information</h3>
+                                <div class="form-group">
+                                    <label for="teamName">Team Name:</label>
+                                    <input type="text" id="teamName" name="teamName" required placeholder="Your team name">
+                                </div>
+                                
+                                <div id="team-members-container">
+                                    <div class="team-member">
+                                        <h4>Team Member #1 (You)</h4>
+                                        <div class="form-group">
+                                            <label for="gamertag">In-game Name/Tag:</label>
+                                            <input type="text" id="gamertag" name="gamertag" required placeholder="Your in-game name">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="team-member">
+                                        <h4>Team Member #2</h4>
+                                        <div class="form-group">
+                                            <label for="member2Name">Full Name:</label>
+                                            <input type="text" id="member2Name" name="member2Name" placeholder="Team member's name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="member2Gamertag">In-game Name/Tag:</label>
+                                            <input type="text" id="member2Gamertag" name="member2Gamertag" placeholder="Team member's in-game name">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button type="button" id="add-member" class="btn-secondary">+ Add Team Member</button>
+                            </div>
+                            
+                            <div class="form-section">
+                                <h3>Additional Information</h3>
+                                <div class="form-group">
+                                    <label for="experience">Gaming Experience:</label>
+                                    <select id="experience" name="experience">
+                                        <option value="beginner">Beginner</option>
+                                        <option value="intermediate">Intermediate</option>
+                                        <option value="advanced">Advanced</option>
+                                        <option value="professional">Professional</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message">Additional Comments:</label>
+                                    <textarea id="message" name="message" rows="3" placeholder="Any additional information you'd like to share"></textarea>
+                                </div>
+                                
+                                <div class="form-group checkbox-group">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    <label for="terms">I agree to the tournament rules and regulations</label>
+                                </div>
+                                
+                                <!-- Honeypot field to prevent spam -->
+                                <input type="text" name="_gotcha" style="display:none">
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn">Submit Registration</button>
+                                <button type="reset" class="btn-secondary">Clear Form</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2023 Sangguniang Kabataan Batchelor East. All rights reserved.</p>
+        <p class="credits">Created By: <span class="developer-name">Jade Madriaga</span></p>
+    </div>
+</footer>
+
+    <script src="../js/main.js"></script>
+    
+    <!-- Formspree AJAX submission script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('registration-form');
+        const formStatus = document.getElementById('form-status');
+        
+        if (form) {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Show sending message
+                formStatus.innerHTML = '<div class="sending">Sending your registration... Please wait.</div>';
+                formStatus.style.display = 'block';
+                
+                // Collect form data
+                const formData = new FormData(form);
+                
+                // Collect team members data in a more structured format
+                let teamMembers = [];
+                const memberElements = document.querySelectorAll('.team-member');
+                
+                memberElements.forEach((member, index) => {
+                    if (index === 0) {
+                        // First member is the captain
+                        teamMembers.push({
+                            role: "Captain",
+                            name: formData.get('name'),
+                            gamertag: formData.get('gamertag')
+                        });
+                    } else {
+                        // Get member inputs
+                        const nameInput = member.querySelector('input[id$="Name"]');
+                        const gamertagInput = member.querySelector('input[id$="Gamertag"]');
+                        
+                        if (nameInput && gamertagInput && (nameInput.value || gamertagInput.value)) {
+                            teamMembers.push({
+                                role: `Member #${index+1}`,
+                                name: nameInput.value || "Not provided",
+                                gamertag: gamertagInput.value || "Not provided"
+                            });
+                        }
+                    }
+                });
+                
+                // Add team members data as a formatted string for better email readability
+                let teamMembersText = "Team Members:\n";
+                teamMembers.forEach(member => {
+                    teamMembersText += `- ${member.role}: ${member.name} (${member.gamertag})\n`;
+                });
+                
+                formData.append('teamMembersFormatted', teamMembersText);
+                
+                // Send to Formspree
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Network response was not ok.');
+                })
+                .then(data => {
+                    // Success message
+                    formStatus.innerHTML = `
+                        <div class="success">
+                            <h3>Registration Successful!</h3>
+                            <p>Thank you for registering. We've received your information and will contact you soon with further details.</p>
+                            <p>A confirmation email has been sent to your email address.</p>
+                        </div>
+                    `;
+                    
+                    // Reset the form
+                    form.reset();
+                    
+                    // Remove additional team members (keep the first two)
+                    const teamMembers = document.querySelectorAll('.team-member');
+                    for (let i = 2; i < teamMembers.length; i++) {
+                        teamMembers[i].remove();
+                    }
+                })
+                .catch(error => {
+                    // Error message
+                    formStatus.innerHTML = `
+                        <div class="error">
+                            <h3>Submission Error</h3>
+                            <p>Sorry, there was a problem submitting your registration. Please try again or contact us directly.</p>
+                            <p>Error details: ${error.message}</p>
+                        </div>
+                    `;
+                });
+            });
+        }
+        
+        // Add team member functionality
+        const addMemberBtn = document.getElementById('add-member');
+        const teamMembersContainer = document.getElementById('team-members-container');
+        
+        if (addMemberBtn && teamMembersContainer) {
+            let memberCount = 2; // Already have 2 members in the HTML
+            
+            addMemberBtn.addEventListener('click', function() {
+                memberCount++;
+                
+                const memberDiv = document.createElement('div');
+                memberDiv.className = 'team-member';
+                memberDiv.innerHTML = `
+                    <h4>Team Member #${memberCount}</h4>
+                    <div class="form-group">
+                        <label for="member${memberCount}Name">Full Name:</label>
+                        <input type="text" id="member${memberCount}Name" name="member${memberCount}Name" placeholder="Team member's name">
+                    </div>
+                    <div class="form-group">
+                        <label for="member${memberCount}Gamertag">In-game Name/Tag:</label>
+                        <input type="text" id="member${memberCount}Gamertag" name="member${memberCount}Gamertag" placeholder="Team member's in-game name">
+                    </div>
+                    <button type="button" class="btn-secondary remove-member">Remove</button>
+                `;
+                
+                teamMembersContainer.appendChild(memberDiv);
+                
+                // Add event listener to the remove button
+                const removeBtn = memberDiv.querySelector('.remove-member');
+                removeBtn.addEventListener('click', function() {
+                    memberDiv.remove();
+                });
+            });
+        }
+    });
+    </script>
+    
+    <style>
+    /* Form status messages */
+    .form-status {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 4px;
+        display: none;
+    }
+    
+    .form-status .sending {
+        background-color: rgba(30, 144, 255, 0.1);
+        border: 1px solid var(--secondary-color);
+        color: var(--light-text);
+        padding: 15px;
+        border-radius: 4px;
+    }
+    
+    .form-status .success {
+        background-color: rgba(46, 204, 113, 0.1);
+        border: 1px solid #2ecc71;
+        color: #2ecc71;
+        padding: 15px;
+        border-radius: 4px;
+    }
+    
+    .form-status .error {
+        background-color: rgba(231, 76, 60, 0.1);
+        border: 1px solid #e74c3c;
+        color: #e74c3c;
+        padding: 15px;
+        border-radius: 4px;
+    }
+    
+    .form-status h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+    
+    .form-status p {
+        margin-bottom: 10px;
+    }
+    
+    .form-status p:last-child {
+        margin-bottom: 0;
+    }
+    </style>
+</body>
+</html>
