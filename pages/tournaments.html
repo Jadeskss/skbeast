@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="icon" href="../assets/images/logo.png" type="image/svg+xml">
+    <!-- Add Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <header>
         <div class="logo">
             <img src="../assets/images/logo.png" alt="SkBeast Tournaments Logo">
+            <span class="logo-text">SK<span class="beast-text">Beast</span></span>
         </div>
         <div class="hamburger-menu">
             <div class="bar"></div>
@@ -32,212 +35,21 @@
         <section class="page-banner">
             <div class="government-badge">Official Sangguniang Kabataan Initiative</div>
             <h1>Tournaments</h1>
-            <p>Browse and register for our exciting gaming tournaments</p>
         </section>
 
-        <section class="tournaments-section">
+        <section class="under-development-section">
             <div class="container">
-                <div class="filter-container">
-                    <div class="filter-group">
-                        <label for="statusFilter">Status:</label>
-                        <select id="statusFilter">
-                            <option value="all">All</option>
-                            <option value="open">Registration Open</option>
-                            <option value="coming-soon">Coming Soon</option>
-                            <option value="closed">Registration Closed</option>
-                        </select>
+                <div class="development-notice">
+                    <div class="notice-icon">
+                        <i class='bx bx-construction' ></i>
                     </div>
-                    <div class="filter-group">
-                        <label for="gameTypeFilter">Game Type:</label>
-                        <select id="gameTypeFilter">
-                            <option value="all">All</option>
-                            <option value="Mobile">Mobile</option>
-                            <option value="PC">PC</option>
-                            <option value="Console">Console</option>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Tournament cards will be loaded dynamically, but we'll add some static ones for now -->
-                <div class="tournaments-container">
-                    <!-- Tournament 1 -->
-                    <div class="tournament-card">
-                        <div class="tournament-card-image">
-                            <img src="../assets/images/tournaments/mobile-legends.jpg" alt="Mobile Legends Championship">
-                            <div class="tournament-status status-open">Registration Open</div>
-                            <div class="tournament-badge">Mobile</div>
-                        </div>
-                        <div class="tournament-card-content">
-                            <h3>Mobile Legends Championship</h3>
-                            <div class="tournament-date">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                                </svg>
-                                June 15, 2025
-                            </div>
-                            <p class="tournament-description">5v5 Mobile Legends tournament for youth residents of Batchelor East. Compete for cash prizes and bragging rights!</p>
-                            <div class="tournament-meta">
-                                <div class="venue">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    SK Batchelor East Activity Center
-                                </div>
-                                <div class="fee">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="12" y1="1" x2="12" y2="23"></line>
-                                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                                    </svg>
-                                    ₱150 per team
-                                </div>
-                            </div>
-                            <div class="tournament-slots">
-                                <div>Slots: 8/16 teams</div>
-                                <div class="slots-bar">
-                                    <div class="slots-progress" style="width: 50%"></div>
-                                </div>
-                            </div>
-                            <a href="registration.html?tournament=Mobile Legends Championship" class="btn">Register Now</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Tournament 2 -->
-                    <div class="tournament-card">
-                        <div class="tournament-card-image">
-                            <img src="../assets/images/tournaments/codm.jpg" alt="Call of Duty: Mobile Showdown">
-                            <div class="tournament-status status-open">Registration Open</div>
-                            <div class="tournament-badge">Mobile</div>
-                        </div>
-                        <div class="tournament-card-content">
-                            <h3>Call of Duty: Mobile Showdown</h3>
-                            <div class="tournament-date">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                                </svg>
-                                July 8, 2025
-                            </div>
-                            <p class="tournament-description">4v4 Call of Duty: Mobile tournament. Show off your tactical skills and win awesome prizes!</p>
-                            <div class="tournament-meta">
-                                <div class="venue">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    Batchelor East Community Hall
-                                </div>
-                                <div class="fee">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="12" y1="1" x2="12" y2="23"></line>
-                                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                                    </svg>
-                                    ₱120 per team
-                                </div>
-                            </div>
-                            <div class="tournament-slots">
-                                <div>Slots: 5/12 teams</div>
-                                <div class="slots-bar">
-                                    <div class="slots-progress" style="width: 41.6%"></div>
-                                </div>
-                            </div>
-                            <a href="registration.html?tournament=Call of Duty: Mobile Showdown" class="btn">Register Now</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Tournament 3 -->
-                    <div class="tournament-card">
-                        <div class="tournament-card-image">
-                            <img src="../assets/images/tournaments/dota2.jpg" alt="DOTA 2 Batchelor Cup">
-                            <div class="tournament-status status-coming-soon">Coming Soon</div>
-                            <div class="tournament-badge">PC</div>
-                        </div>
-                        <div class="tournament-card-content">
-                            <h3>DOTA 2 Batchelor Cup</h3>
-                            <div class="tournament-date">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                                </svg>
-                                August 12, 2025
-                            </div>
-                            <p class="tournament-description">5v5 DOTA 2 tournament featuring the best teams in our community. Prove your worth in this prestigious cup!</p>
-                            <div class="tournament-meta">
-                                <div class="venue">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    Batchelor East Digital Hub
-                                </div>
-                                <div class="fee">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="12" y1="1" x2="12" y2="23"></line>
-                                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                                    </svg>
-                                    ₱200 per team
-                                </div>
-                            </div>
-                            <div class="tournament-slots">
-                                <div>Slots: 0/16 teams</div>
-                                <div class="slots-bar">
-                                    <div class="slots-progress" style="width: 0%"></div>
-                                </div>
-                            </div>
-                            <button class="btn" style="background-color: #555; cursor: not-allowed;">Coming Soon</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Tournament 4 -->
-                    <div class="tournament-card">
-                        <div class="tournament-card-image">
-                            <img src="../assets/images/tournaments/fifa.jpg" alt="FIFA 25 Youth Tournament">
-                            <div class="tournament-status status-coming-soon">Coming Soon</div>
-                            <div class="tournament-badge">Console</div>
-                        </div>
-                        <div class="tournament-card-content">
-                            <h3>FIFA 25 Youth Tournament</h3>
-                            <div class="tournament-date">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                    <line x1="16" y1="2" x2="16" y2="6"></line>
-                                    <line x1="8" y1="2" x2="8" y2="6"></line>
-                                    <line x1="3" y1="10" x2="21" y2="10"></line>
-                                </svg>
-                                September 5, 2025
-                            </div>
-                            <p class="tournament-description">1v1 FIFA 25 tournament for the football fans. Compete in this exciting virtual football championship!</p>
-                            <div class="tournament-meta">
-                                <div class="venue">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                        <circle cx="12" cy="10" r="3"></circle>
-                                    </svg>
-                                    SK Batchelor East Activity Center
-                                </div>
-                                <div class="fee">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <line x1="12" y1="1" x2="12" y2="23"></line>
-                                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                                    </svg>
-                                    ₱50 per player
-                                </div>
-                            </div>
-                            <div class="tournament-slots">
-                                <div>Slots: 0/32 players</div>
-                                <div class="slots-bar">
-                                    <div class="slots-progress" style="width: 0%"></div>
-                                </div>
-                            </div>
-                            <button class="btn" style="background-color: #555; cursor: not-allowed;">Coming Soon</button>
-                        </div>
+                    <h2>This Page is Under Development</h2>
+                    <p>We're working hard to bring you exciting tournaments soon!</p>
+                    <p>The Tournaments section is currently being updated with new events and features.</p>
+                    <p class="notice-date">Last updated: May 30, 2025</p>
+                    <div class="notice-actions">
+                        <a href="../index.html" class="btn">Return to Home</a>
+                        <a href="contact.html" class="btn-secondary">Contact Us</a>
                     </div>
                 </div>
             </div>
@@ -246,11 +58,240 @@
 
     <footer>
         <div class="footer-content">
+            <div class="social-media slide-up">
+                <a href="https://www.facebook.com/profile.php?id=61552583579594" target="_blank" class="social-icon facebook-icon" aria-label="Facebook">
+                    <i class='bx bxl-facebook'></i>
+                </a>
+                <a href="mailto:Ebasangguninagkabataan30@gmail.com" class="social-icon email-icon" aria-label="Email">
+                    <i class='bx bx-envelope'></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61552583579594" target="_blank" class="social-icon messenger-icon" aria-label="Messenger">
+                    <i class='bx bxl-messenger'></i>
+                </a>
+            </div>
             <p>&copy; 2023 Sangguniang Kabataan Batchelor East. All rights reserved.</p>
             <p class="credits">Created By: <span class="developer-name">Jade Madriaga</span></p>
         </div>
     </footer>
 
     <script src="../js/main.js"></script>
+    
+    <style>
+        /* Logo styling */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--secondary-color); /* Blue */
+            letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+        }
+        
+        .beast-text {
+            color: var(--accent-color); /* Red */
+            font-weight: 800;
+            position: relative;
+        }
+        
+        /* Gaming-style highlight effect */
+        .beast-text::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), transparent);
+            border-radius: 2px;
+        }
+        
+        /* Under Development Notice */
+        .under-development-section {
+            padding: 4rem 1rem;
+        }
+        
+        .development-notice {
+            background: linear-gradient(145deg, #0a1020, #101c30);
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(30, 144, 255, 0.2);
+            animation: pulse-glow 3s infinite alternate;
+        }
+        
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+            100% {
+                box-shadow: 0 10px 30px rgba(30, 144, 255, 0.3);
+            }
+        }
+        
+        .notice-icon {
+            font-size: 5rem;
+            color: #9c27b0;
+            margin-bottom: 1.5rem;
+            animation: rotate-icon 10s linear infinite;
+        }
+        
+        @keyframes rotate-icon {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .development-notice h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(30, 144, 255, 0.5);
+        }
+        
+        .development-notice p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--light-text);
+        }
+        
+        .notice-date {
+            font-size: 0.9rem !important;
+            color: var(--gray-text) !important;
+            margin-top: 2rem;
+            font-style: italic;
+        }
+        
+        .notice-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        /* Social Media Icons */
+        .social-media {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            gap: 1.8rem;
+        }
+        
+        .social-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: linear-gradient(145deg, #0a1020, #101c30);
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2),
+                        -5px -5px 10px rgba(30, 50, 100, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom right, rgba(30, 144, 255, 0.2), rgba(30, 144, 255, 0));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        
+        .social-icon i {
+            font-size: 24px;
+            color: var(--secondary-color);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+        
+        .social-icon:hover::before {
+            opacity: 1;
+        }
+        
+        .social-icon:hover i {
+            transform: scale(1.15);
+        }
+        
+        .facebook-icon:hover {
+            background: linear-gradient(145deg, #0d54be, #1877f2);
+        }
+        
+        .facebook-icon:hover i {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .email-icon:hover {
+            background: linear-gradient(145deg, #c5321e, #ea4335);
+        }
+        
+        .email-icon:hover i {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .messenger-icon:hover {
+            background: linear-gradient(145deg, #0091d9, #00B2FF);
+        }
+        
+        .messenger-icon:hover i {
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .development-notice {
+                padding: 2rem 1rem;
+            }
+            
+            .notice-icon {
+                font-size: 4rem;
+            }
+            
+            .development-notice h2 {
+                font-size: 1.8rem;
+            }
+            
+            .development-notice p {
+                font-size: 1rem;
+            }
+            
+            .notice-actions {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+        }
+    </style>
 </body>
 </html>

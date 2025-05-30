@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
     <link rel="icon" href="../assets/images/logo.png" type="image/svg+xml">
-    <!-- Formspree AJAX library -->
-    <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <header>
         <div class="logo">
             <img src="../assets/images/logo.png" alt="SkBeast Tournaments Logo">
+            <span class="logo-text">SK<span class="beast-text">Beast</span></span>
         </div>
         <div class="hamburger-menu">
             <div class="bar"></div>
@@ -33,14 +34,14 @@
     <main>
         <section class="page-banner">
             <div class="government-badge">Official Sangguniang Kabataan Initiative</div>
-            <h1>Tournament Registration</h1>
-            <p>Fill out the form below to register for one of our exciting tournaments</p>
+            <h1 class="fade-in">Tournament Registration</h1>
+            <p class="fade-in delay-200">Fill out the form below to register for one of our exciting tournaments</p>
         </section>
 
         <section class="registration-section">
             <div class="container">
                 <div class="registration-container">
-                    <div class="form-info">
+                    <div class="form-info slide-in-left">
                         <h2>Registration Guidelines</h2>
                         <ul>
                             <li>Registration is open to Batchelor East residents aged 15-30</li>
@@ -52,12 +53,12 @@
                         <div class="contact-info">
                             <h3>Need Help?</h3>
                             <p>Contact our councils:</p>
-                            <p><strong>Email:</strong> Ebasangguninagkabataan30@gmail.com</p>
-                            <p><strong>Phone:</strong> 63 </p>
+                            <p><strong>Email:</strong> <a href="mailto:Ebasangguninagkabataan30@gmail.com">Ebasangguninagkabataan30@gmail.com</a></p>
+                            <p><strong>Phone:</strong> 63+ </p>
                         </div>
                     </div>
                     
-                    <div class="form-container">
+                    <div class="form-container slide-in-right">
                         <h2>Registration Form</h2>
                         <!-- Formspree notification area for status messages -->
                         <div id="form-status" class="form-status"></div>
@@ -66,7 +67,11 @@
                             <div class="form-group">
                                 <label for="tournamentId">Select Tournament:</label>
                                 <select id="tournamentId" name="tournament" required>
-                                    
+                                    <option value="">--Select a tournament--</option>
+                                    <option value="Mobile Legends Championship">Mobile Legends Championship</option>
+                                    <option value="Call of Duty: Mobile Showdown">Call of Duty: Mobile Showdown</option>
+                                    <option value="DOTA 2 Batchelor Cup">DOTA 2 Batchelor Cup</option>
+                                    <option value="FIFA 25 Youth Tournament">FIFA 25 Youth Tournament</option>
                                 </select>
                             </div>
                             
@@ -103,7 +108,7 @@
                             </div>
                             
                             <div class="form-section team-section">
-                                <h3>Team Information</h3>
+                                <h3>Team Information <span class="team-limit">(Maximum 6 members including captain)</span></h3>
                                 <div class="form-group">
                                     <label for="teamName">Team Name:</label>
                                     <input type="text" id="teamName" name="teamName" required placeholder="Your team name">
@@ -111,7 +116,7 @@
                                 
                                 <div id="team-members-container">
                                     <div class="team-member">
-                                        <h4>Team Member #1 (You)</h4>
+                                        <h4>Team Member #1 (You - Captain)</h4>
                                         <div class="form-group">
                                             <label for="gamertag">In-game Name/Tag:</label>
                                             <input type="text" id="gamertag" name="gamertag" required placeholder="Your in-game name">
@@ -128,6 +133,7 @@
                                             <label for="member2Gamertag">In-game Name/Tag:</label>
                                             <input type="text" id="member2Gamertag" name="member2Gamertag" placeholder="Team member's in-game name">
                                         </div>
+                                        <button type="button" class="btn-secondary remove-member">Remove</button>
                                     </div>
                                 </div>
                                 
@@ -161,7 +167,7 @@
                             </div>
                             
                             <div class="form-actions">
-                                <button type="submit" class="btn">Submit Registration</button>
+                                <button type="submit" class="btn pulse">Submit Registration</button>
                                 <button type="reset" class="btn-secondary">Clear Form</button>
                             </div>
                         </form>
@@ -171,21 +177,95 @@
         </section>
     </main>
 
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2023 Sangguniang Kabataan Batchelor East. All rights reserved.</p>
-        <p class="credits">Created By: <span class="developer-name">Jade Madriaga</span></p>
-    </div>
-</footer>
+    <footer>
+        <div class="footer-content">
+            <div class="social-media slide-up">
+                <a href="https://www.facebook.com/profile.php?id=61552583579594" target="_blank" class="social-icon facebook-icon" aria-label="Facebook">
+                    <i class='bx bxl-facebook'></i>
+                </a>
+                <a href="mailto:Ebasangguninagkabataan30@gmail.com" class="social-icon email-icon" aria-label="Email">
+                    <i class='bx bx-envelope'></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61552583579594" target="_blank" class="social-icon messenger-icon" aria-label="Messenger">
+                    <i class='bx bxl-messenger'></i>
+                </a>
+            </div>
+            <p class="fade-in">&copy; 2023 Sangguniang Kabataan Batchelor East. All rights reserved.</p>
+            <p class="credits fade-in delay-200">Created By: <span class="developer-name">Jade Madriaga</span></p>
+        </div>
+    </footer>
 
     <script src="../js/main.js"></script>
     
-    <!-- Formspree AJAX submission script -->
+    <!-- Registration form scripts -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const form = document.getElementById('registration-form');
         const formStatus = document.getElementById('form-status');
+        const addMemberBtn = document.getElementById('add-member');
+        const teamMembersContainer = document.getElementById('team-members-container');
+        const MAX_TEAM_MEMBERS = 6; // Maximum team size including captain
         
+        // Function to update team member numbers and manage the add button state
+        function updateTeamMemberNumbers() {
+            const teamMembers = teamMembersContainer.querySelectorAll('.team-member');
+            
+            teamMembers.forEach((member, index) => {
+                // Skip the captain (first member)
+                if (index === 0) return;
+                
+                // Update the heading
+                const heading = member.querySelector('h4');
+                if (heading) {
+                    heading.textContent = `Team Member #${index + 1}`;
+                }
+                
+                // Update input IDs and names
+                const nameInput = member.querySelector('input[id*="Name"]');
+                const gamertagInput = member.querySelector('input[id*="Gamertag"]');
+                
+                if (nameInput) {
+                    nameInput.id = `member${index + 1}Name`;
+                    nameInput.name = `member${index + 1}Name`;
+                    const nameLabel = member.querySelector(`label[for*="Name"]`);
+                    if (nameLabel) nameLabel.setAttribute('for', `member${index + 1}Name`);
+                }
+                
+                if (gamertagInput) {
+                    gamertagInput.id = `member${index + 1}Gamertag`;
+                    gamertagInput.name = `member${index + 1}Gamertag`;
+                    const gamertagLabel = member.querySelector(`label[for*="Gamertag"]`);
+                    if (gamertagLabel) gamertagLabel.setAttribute('for', `member${index + 1}Gamertag`);
+                }
+            });
+            
+            // Enable/disable add button based on team size
+            if (teamMembers.length >= MAX_TEAM_MEMBERS) {
+                addMemberBtn.disabled = true;
+                addMemberBtn.classList.add('disabled');
+                addMemberBtn.title = "Maximum team size reached";
+                
+                // Show message when max team size is reached
+                if (!document.getElementById('max-team-message')) {
+                    const message = document.createElement('div');
+                    message.id = 'max-team-message';
+                    message.className = 'max-team-message';
+                    message.textContent = 'Maximum team size reached (6 members including captain)';
+                    addMemberBtn.parentNode.insertBefore(message, addMemberBtn.nextSibling);
+                }
+            } else {
+                addMemberBtn.disabled = false;
+                addMemberBtn.classList.remove('disabled');
+                addMemberBtn.title = "Add another team member";
+                
+                const maxTeamMessage = document.getElementById('max-team-message');
+                if (maxTeamMessage) {
+                    maxTeamMessage.remove();
+                }
+            }
+        }
+        
+        // Form submission handler
         if (form) {
             form.addEventListener('submit', function(event) {
                 event.preventDefault();
@@ -193,6 +273,9 @@
                 // Show sending message
                 formStatus.innerHTML = '<div class="sending">Sending your registration... Please wait.</div>';
                 formStatus.style.display = 'block';
+                
+                // Scroll to status message
+                formStatus.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 
                 // Collect form data
                 const formData = new FormData(form);
@@ -211,12 +294,12 @@
                         });
                     } else {
                         // Get member inputs
-                        const nameInput = member.querySelector('input[id$="Name"]');
-                        const gamertagInput = member.querySelector('input[id$="Gamertag"]');
+                        const nameInput = member.querySelector('input[id*="Name"]');
+                        const gamertagInput = member.querySelector('input[id*="Gamertag"]');
                         
                         if (nameInput && gamertagInput && (nameInput.value || gamertagInput.value)) {
                             teamMembers.push({
-                                role: `Member #${index+1}`,
+                                role: `Member #${index}`,
                                 name: nameInput.value || "Not provided",
                                 gamertag: gamertagInput.value || "Not provided"
                             });
@@ -264,6 +347,9 @@
                     for (let i = 2; i < teamMembers.length; i++) {
                         teamMembers[i].remove();
                     }
+                    
+                    // Update team member numbers
+                    updateTeamMemberNumbers();
                 })
                 .catch(error => {
                     // Error message
@@ -279,43 +365,183 @@
         }
         
         // Add team member functionality
-        const addMemberBtn = document.getElementById('add-member');
-        const teamMembersContainer = document.getElementById('team-members-container');
-        
         if (addMemberBtn && teamMembersContainer) {
-            let memberCount = 2; // Already have 2 members in the HTML
-            
             addMemberBtn.addEventListener('click', function() {
-                memberCount++;
+                const teamMembers = teamMembersContainer.querySelectorAll('.team-member');
+                
+                // Check if max team size reached
+                if (teamMembers.length >= MAX_TEAM_MEMBERS) {
+                    return;
+                }
+                
+                const newIndex = teamMembers.length;
                 
                 const memberDiv = document.createElement('div');
-                memberDiv.className = 'team-member';
+                memberDiv.className = 'team-member fade-in';
                 memberDiv.innerHTML = `
-                    <h4>Team Member #${memberCount}</h4>
+                    <h4>Team Member #${newIndex + 1}</h4>
                     <div class="form-group">
-                        <label for="member${memberCount}Name">Full Name:</label>
-                        <input type="text" id="member${memberCount}Name" name="member${memberCount}Name" placeholder="Team member's name">
+                        <label for="member${newIndex + 1}Name">Full Name:</label>
+                        <input type="text" id="member${newIndex + 1}Name" name="member${newIndex + 1}Name" placeholder="Team member's name">
                     </div>
                     <div class="form-group">
-                        <label for="member${memberCount}Gamertag">In-game Name/Tag:</label>
-                        <input type="text" id="member${memberCount}Gamertag" name="member${memberCount}Gamertag" placeholder="Team member's in-game name">
+                        <label for="member${newIndex + 1}Gamertag">In-game Name/Tag:</label>
+                        <input type="text" id="member${newIndex + 1}Gamertag" name="member${newIndex + 1}Gamertag" placeholder="Team member's in-game name">
                     </div>
                     <button type="button" class="btn-secondary remove-member">Remove</button>
                 `;
                 
                 teamMembersContainer.appendChild(memberDiv);
                 
+                // Add fade-in animation
+                setTimeout(() => {
+                    memberDiv.classList.add('animate');
+                }, 10);
+                
                 // Add event listener to the remove button
                 const removeBtn = memberDiv.querySelector('.remove-member');
                 removeBtn.addEventListener('click', function() {
-                    memberDiv.remove();
+                    memberDiv.classList.remove('animate');
+                    memberDiv.classList.add('fade-out');
+                    
+                    // Wait for animation to complete before removing
+                    setTimeout(() => {
+                        memberDiv.remove();
+                        updateTeamMemberNumbers();
+                    }, 300);
                 });
+                
+                updateTeamMemberNumbers();
             });
+            
+            // Initialize - add remove buttons to existing members (except captain)
+            const existingMembers = teamMembersContainer.querySelectorAll('.team-member');
+            existingMembers.forEach((member, index) => {
+                // Skip the captain
+                if (index === 0) return;
+                
+                // Add remove button if it doesn't exist
+                if (!member.querySelector('.remove-member')) {
+                    const removeBtn = document.createElement('button');
+                    removeBtn.type = 'button';
+                    removeBtn.className = 'btn-secondary remove-member';
+                    removeBtn.textContent = 'Remove';
+                    
+                    removeBtn.addEventListener('click', function() {
+                        member.classList.add('fade-out');
+                        
+                        // Wait for animation to complete before removing
+                        setTimeout(() => {
+                            member.remove();
+                            updateTeamMemberNumbers();
+                        }, 300);
+                    });
+                    
+                    member.appendChild(removeBtn);
+                }
+            });
+            
+            // Initial update
+            updateTeamMemberNumbers();
+        }
+        
+        // Load tournament options into dropdown
+        const tournamentSelect = document.getElementById('tournamentId');
+        if (tournamentSelect) {
+            // Try to fetch from JSON first, fall back to hardcoded options
+            fetch('../data/tournaments.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // Clear existing options except the first one
+                    while (tournamentSelect.options.length > 1) {
+                        tournamentSelect.remove(1);
+                    }
+                    
+                    // Add tournament options from the JSON data
+                    data.tournaments.forEach(tournament => {
+                        // Only show tournaments with 'open' status
+                        if (tournament.status === 'open') {
+                            const option = document.createElement('option');
+                            option.value = tournament.name;
+                            option.textContent = tournament.name;
+                            tournamentSelect.appendChild(option);
+                        }
+                    });
+                    
+                    // Pre-select tournament if specified in URL query params
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const tournamentParam = urlParams.get('tournament');
+                    if (tournamentParam) {
+                        for (let i = 0; i < tournamentSelect.options.length; i++) {
+                            if (tournamentSelect.options[i].value === tournamentParam) {
+                                tournamentSelect.selectedIndex = i;
+                                break;
+                            }
+                        }
+                    }
+                })
+                .catch(error => {
+                    console.warn('Could not load tournaments from JSON:', error);
+                    // Keep the hardcoded options as fallback
+                });
         }
     });
     </script>
     
     <style>
+    /* Registration form styles */
+    .team-limit {
+        font-size: 0.8em;
+        font-weight: normal;
+        color: var(--gray-text);
+        font-style: italic;
+    }
+    
+    /* Team member animations */
+    .team-member {
+        transition: all 0.3s ease;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .team-member.fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    .team-member.fade-in.animate {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .team-member.fade-out {
+        opacity: 0;
+        transform: translateY(20px);
+        max-height: 0;
+        overflow: hidden;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    
+    .btn-secondary.disabled {
+        background-color: #555;
+        cursor: not-allowed;
+        opacity: 0.7;
+    }
+    
+    .max-team-message {
+        color: var(--accent-color);
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+        font-style: italic;
+    }
+    
     /* Form status messages */
     .form-status {
         margin-bottom: 20px;
@@ -359,6 +585,90 @@
     
     .form-status p:last-child {
         margin-bottom: 0;
+    }
+    
+    /* Social Media Icons */
+    .social-media {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        gap: 1.8rem;
+    }
+    
+    .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        border-radius: 12px;
+        background: linear-gradient(145deg, #0a1020, #101c30);
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2),
+                    -5px -5px 10px rgba(30, 50, 100, 0.05);
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    .social-icon::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom right, rgba(30, 144, 255, 0.2), rgba(30, 144, 255, 0));
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    
+    .social-icon i {
+        font-size: 24px;
+        color: var(--secondary-color);
+        transition: all 0.4s ease;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .social-icon:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+    }
+    
+    .social-icon:hover::before {
+        opacity: 1;
+    }
+    
+    .social-icon:hover i {
+        transform: scale(1.15);
+    }
+    
+    .facebook-icon:hover {
+        background: linear-gradient(145deg, #0d54be, #1877f2);
+    }
+    
+    .facebook-icon:hover i {
+        color: #ffffff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    
+    .email-icon:hover {
+        background: linear-gradient(145deg, #c5321e, #ea4335);
+    }
+    
+    .email-icon:hover i {
+        color: #ffffff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+    
+    .messenger-icon:hover {
+        background: linear-gradient(145deg, #0091d9, #00B2FF);
+    }
+    
+    .messenger-icon:hover i {
+        color: #ffffff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     }
     </style>
 </body>

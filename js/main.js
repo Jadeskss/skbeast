@@ -210,25 +210,95 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function fetchTournaments() {
-    fetch('/data/tournaments.json')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+// Scroll Animation functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Options for the Intersection Observer
+    const options = {
+        root: null, // Use the viewport
+        rootMargin: '0px',
+        threshold: 0.1 // Trigger when at least 10% of the element is visible
+    };
+
+    // Create the observer
+    const observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target); // Stop observing once animated
             }
-            return response.json();
-        })
-        .then(data => {
-            displayTournaments(data.tournaments);
-        })
-        .catch(error => {
-            console.error('Error fetching tournaments:', error);
-            document.querySelector('.tournaments-container').innerHTML = `
-                <div class="error-message">
-                    <p>Unable to load tournaments at this time. Please try again later.</p>
-                </div>
-            `;
         });
+    }, options);
+
+    // Get all elements with animation classes
+    const animatedElements = document.querySelectorAll('.fade-in, .slide-up, .slide-in-left, .slide-in-right, .zoom-in, .pulse');
+    
+    // Start observing each element
+    animatedElements.forEach(element => {
+        observer.observe(element);
+    });
+});
+
+const tournamentData = {
+  "tournaments": [
+    {
+      "id": 1,
+      "name": "Mobile Legends Tournament Season 2",
+      "date": "N/A",
+      "registrationDeadline": "June 10, 2025",
+      "venue": "Batchelor East Plaza",
+      "description": "5v5 Mobile Legends tournament for youth residents of Batchelor East. Compete for cash prizes and bragging rights!",
+      "gameType": "Mobile",
+      "entryFee": "₱150 per team",
+      "prizes": "1st Place: ₱3,000, 2nd Place: ₱2,000, 3rd Place: ₱1,000",
+      "status": "open",
+      "maxTeams": 16,
+      "currentTeams": 0,
+      "image": "assets/images/ml.png"
+    },
+    {
+      "id": 2,
+      "name": "Basketball Tournament",
+      "date": "N/A",
+      "registrationDeadline": "N/A",
+      "venue": "N/A",
+      "description": "N/A",
+      "gameType": "N/A",
+      "entryFee": "N/A",
+      "prizes": "N/A",
+      "status": "coming-soon",
+      "maxTeams": 0,
+      "currentTeams": 0,
+      "image": "assets/images/bask.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Volleyball Tournament",
+      "date": "N/A",
+      "registrationDeadline": "N/A",
+      "venue": "N/A",
+      "description": "N/A",
+      "gameType": "N/A",
+      "entryFee": "N/A",
+      "prizes": "N/A",
+      "status": "coming-soon",
+      "maxTeams": 0,
+      "currentTeams": 0,
+      "image": "assets/images/voley.jpg"
+    }
+  ]
+};
+
+function fetchTournaments() {
+    const tournamentsContainer = document.querySelector('.tournaments-container');
+    const loadingElement = document.querySelector('.loading');
+    
+    // Use the inline data instead of fetching
+    if (loadingElement) {
+        loadingElement.remove();
+    }
+    
+    // Display tournaments
+    displayTournaments(tournamentData.tournaments);
 }
 
 function displayTournaments(tournaments) {

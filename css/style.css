@@ -676,6 +676,28 @@ textarea:focus {
     border-radius: 4px;
     margin-bottom: 1rem;
     border: 1px solid rgba(30, 144, 255, 0.1);
+    transition: all 0.3s ease;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.team-member.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.team-member.fade-in.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.team-member.fade-out {
+    opacity: 0;
+    transform: translateY(20px);
+    max-height: 0;
+    overflow: hidden;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .team-member h4 {
@@ -928,6 +950,79 @@ textarea:focus {
                 inset -3px -3px 5px rgba(30, 50, 100, 0.05);
 }
 
+/* Scroll Animation Styles */
+.fade-in, .slide-up, .slide-in-left, .slide-in-right, .zoom-in, .pulse {
+    opacity: 0;
+    transition: all 0.8s ease-out;
+    will-change: opacity, transform;
+}
+
+/* Animation when element becomes visible */
+.fade-in.animate {
+    opacity: 1;
+}
+
+.slide-up {
+    transform: translateY(50px);
+}
+
+.slide-up.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-in-left {
+    transform: translateX(-100px);
+}
+
+.slide-in-left.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-in-right {
+    transform: translateX(100px);
+}
+
+.slide-in-right.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.zoom-in {
+    transform: scale(0.8);
+}
+
+.zoom-in.animate {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.pulse.animate {
+    opacity: 1;
+    animation: pulse-animation 1.5s ease-out;
+}
+
+@keyframes pulse-animation {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Add delay variations */
+.delay-200 { transition-delay: 0.2s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-600 { transition-delay: 0.6s; }
+.delay-800 { transition-delay: 0.8s; }
+
 /* Responsive form styles will be in the responsive.css file */
 
 /* Responsive styles for About page */
@@ -948,4 +1043,84 @@ textarea:focus {
     .map-container {
         height: 300px;
     }
+}
+
+/* File upload styling */
+.file-upload-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.file-upload-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.file-upload-label {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(145deg, #0a1020, #101c30);
+    border: 1px solid rgba(30, 144, 255, 0.3);
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.file-upload-label i {
+    font-size: 1.2rem;
+    margin-right: 8px;
+    color: var(--secondary-color);
+}
+
+.file-upload-label:hover {
+    background: rgba(30, 144, 255, 0.1);
+    border-color: var(--secondary-color);
+}
+
+.file-upload-input:focus + .file-upload-label {
+    box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.3);
+}
+
+.file-help-text {
+    font-size: 0.8rem;
+    color: var(--gray-text);
+    margin-top: 5px;
+}
+
+.optional-text {
+    font-size: 0.8em;
+    font-weight: normal;
+    color: var(--gray-text);
+    font-style: italic;
+}
+
+.file-preview {
+    margin-top: 10px;
+    text-align: center;
+    min-height: 20px;
+}
+
+.file-preview img {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 4px;
+    border: 1px solid rgba(30, 144, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 5px;
+}
+
+.preview-error {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    padding: 5px;
 }
